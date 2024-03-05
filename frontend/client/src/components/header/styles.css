@@ -28,13 +28,13 @@ img {
   
 .navbar ul li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 20px;
     text-decoration: none;
     
 }
   
 .navbar ul li:last-child {
-    margin-right: 0;
+    margin-right: 30px;
 }
 
 .navbar a {
