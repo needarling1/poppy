@@ -1,0 +1,13 @@
+input {
+    display: flex;
+    padding: 10px;
+    border: 2px solid black;
+    cursor: text;
+    justify-content: center;
+    align-items: center;
+}
+
+.spans{
+    display:flex;
+    justify-content: center;
+}

@@ -6,14 +6,10 @@ const Schema = mongoose.Schema
 const pin_schema = new Schema({
     title: {
         type: String,
-        required: false
-    },
-    creator: {
-        type: String,
         required: true
     },
-    image: {
-        type: Number,
+    description: {
+        type: String,
         required: true
     },
     createdAt: {
