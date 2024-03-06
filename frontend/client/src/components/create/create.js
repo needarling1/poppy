@@ -5,6 +5,7 @@ import axios from 'axios';
 const Create = () => {
     const [title, set_title] = useState('');
     const [description, set_desc] = useState('');
+    const [image, set_image] = useState('');
 
     const post_pin = async (e) => {
         e.preventDefault();
@@ -21,11 +22,21 @@ const Create = () => {
         }
     }
 
+    const convert_to_string = async (image) => {
+        image.preventDefault();
+        
+    }
+
     return (
         <>
         <h1>Create Pin</h1>
         <div className='spans'>
         <form onSubmit = {post_pin}>
+            <span>
+                <input 
+                    type = "file"
+                    placeholder = "Upload an Image"/>
+            </span>
             <span>
                 <input 
                     type = "text" 
