@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
-import Pins from '../pins/pins.js';
+import axios from 'axios';
 
-const home = () => {
+const Home = () => {
+    const [pin, set_pin] = useState([]);
+
+
+    useEffect(() => {
+
+    const get_pins = async () => {
+        try {
+            const respond = await axios.get('http://localhost:4000/api/pins')
+            set_pin(respond.data);
+            // Reset form fields after successful creation
+        } catch (error) {
+            console.error('Error getting pin:', error);
+        }
+    }
+    get_pins();
+    }, [])
+
+
     return (
         <>
-        <h1>home page type shiii</h1>
+        <h1>Home</h1>
+        <div>
+            {pin.map(pin => (
+                <div key={pin.id}>
+                    <h2>{pin.title}</h2>
+                    <p>{pin.description}</p>
+                </div>
+            ))}
+        </div>
         </>
     )
 }
 
-export default home;
+export default Home;

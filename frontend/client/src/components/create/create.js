@@ -9,7 +9,9 @@ const Create = () => {
     const post_pin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/api/create', { title: title, description: description });
+            const response = await axios.post('http://localhost:4000/api/create', { 
+                title: title,
+                description: description });
             console.log('Pin created:', response.data);
             // Reset form fields after successful creation
             set_title('');
