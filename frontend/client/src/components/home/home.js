@@ -5,7 +5,6 @@ import axios from 'axios';
 const Home = () => {
     const [pin, set_pin] = useState([]);
 
-
     useEffect(() => {
 
     const get_pins = async () => {
@@ -25,12 +24,11 @@ const Home = () => {
         <>
         <div className = "posts">
             {pin.map(pin => (
-                <div key={pin._id}>
+                <div className = "pins" key={pin._id}>
                     <a href={"/" + pin._id}>
                     <img src={pin.image} alt="Pin Image" />
                     </a>
-                    <h2>{pin.title}</h2>
-                    <p>{pin.description}</p>
+                    <p>{pin.title}</p>
                 </div>
             ))}
         </div>
