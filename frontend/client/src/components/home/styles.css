@@ -1,11 +1,22 @@
 .posts {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    position: relative;
     justify-content: center;
 }
 
-.posts img {
+.pins {
+    align-self: stretch;
+}
+
+.pins img {
     height: auto;
     width: 200px;
     max-height: 300px;
     min-width: 200px;
 }
+
+.pins p {
+    margin: 0 0 10px 0;
+}
+
