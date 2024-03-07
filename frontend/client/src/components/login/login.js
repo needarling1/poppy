@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-import axios from 'axios';
+import axios from "axios";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,27 +9,10 @@ const Login = () => {
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
-    const logIn = () => {
-        setEmailError('')
-        setPasswordError('')
-
-        // Check if the user has entered both fields correctly
-        if ('' === email) {
-            setEmailError('Please enter your email')
-            return
-        }
-
-        if ('' === password) {
-            setPasswordError('Please enter a password')
-            return
-        }
-
-        if (password.length < 7) {
-            setPasswordError('The password must be 8 characters or longer')
-            return
-        }
-
-        
+    const logIn = (e) => {
+        e.preventDefault()
+        axios.post('http://localhost:4000/login', {email, password }).then(result => console.log(result).catch(err => console.log(err)))
+    }     
     }
 
     return (

@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const all_routes = require('./routes/routing.js')
 const bodyParser = require('body-parser')
 const cors = require('cors');
-
+const user_model = require('./models/user_model.js')
 
 const app = express()
 
@@ -18,7 +18,9 @@ app.use((req, res, next) => {
 })
 
 app.use('/', all_routes)
-
+app.post('/register', (req, res) => {
+    user_model.create(req.body).then(users => res.json(users)).catch(err => res.json(err))
+},
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(4000, () => {
