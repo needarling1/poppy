@@ -12,20 +12,37 @@ const Create = () => {
         try {
             const response = await axios.post('http://localhost:4000/api/create', { 
                 title: title,
-                description: description });
+                description: description,
+                image: image });
             console.log('Pin created:', response.data);
             // Reset form fields after successful creation
             set_title('');
             set_desc('');
+            set_image('');
         } catch (error) {
             console.error('Error creating pin:', error);
         }
     }
 
-    const convert_to_string = async (image) => {
-        image.preventDefault();
-        
+    const convert_to_base64 = (img) => {
+        try {
+        return new Promise((resolve, reject) => {
+            const file_reader = new FileReader();
+            file_reader.readAsDataURL(img);
+            file_reader.onload = () => {
+              resolve(file_reader.result);
+            };
+        })
+        } catch (error){
+            console.error('Error posting image:', error);
+        }
     }
+
+    const handle_upload = async (e) => {
+        const image = e.target.files[0];
+        const base64 = await convert_to_base64(image);
+        set_image(base64);
+      };
 
     return (
         <>
@@ -35,6 +52,8 @@ const Create = () => {
             <span>
                 <input 
                     type = "file"
+                    name = "file"
+                    onChange = {(change) => handle_upload(change)}
                     placeholder = "Upload an Image"/>
             </span>
             <span>

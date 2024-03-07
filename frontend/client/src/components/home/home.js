@@ -23,10 +23,10 @@ const Home = () => {
 
     return (
         <>
-        <h1>Home</h1>
-        <div>
+        <div className = "posts">
             {pin.map(pin => (
                 <div key={pin.id}>
+                    <img src = {pin.image}></img>
                     <h2>{pin.title}</h2>
                     <p>{pin.description}</p>
                 </div>
