@@ -11,6 +11,17 @@ const get_pins = async (req, res) => {
     }
 }
 
+const get_one_pin = async (req, res) => {
+    try{
+        const id = req.params.id
+        const set_pin = await pin.findOne({ _id: id });
+
+        res.status(200).json(set_pin);
+    } catch (error) {
+        res.status(404).json( {msg: error.message });
+    }
+}
+
 const create_pin = async (req, res) => {
     const curr_pin = req.body;
 
@@ -24,4 +35,4 @@ const create_pin = async (req, res) => {
     }
 }
 
-module.exports = { get_pins, create_pin };
+module.exports = { get_pins, get_one_pin, create_pin };

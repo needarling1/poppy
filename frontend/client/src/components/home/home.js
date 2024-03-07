@@ -25,8 +25,10 @@ const Home = () => {
         <>
         <div className = "posts">
             {pin.map(pin => (
-                <div key={pin.id}>
-                    <img src = {pin.image}></img>
+                <div key={pin._id}>
+                    <a href={"/" + pin._id}>
+                    <img src={pin.image} alt="Pin Image" />
+                    </a>
                     <h2>{pin.title}</h2>
                     <p>{pin.description}</p>
                 </div>
