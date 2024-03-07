@@ -3,7 +3,8 @@ import './styles.css';
 import axios from 'axios';
 
 const Login = () => {
-    const [email, setEmail] = useState([]);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [loggedIn, setLoggedIn] = useState(false);
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')

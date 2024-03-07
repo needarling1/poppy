@@ -3,6 +3,7 @@ import Header from './components/header/header.js';
 import Home from './components/home/home.js';
 import Create from './components/create/create.js';
 import Pin from './components/pin/pin.js';
+import Login from './components/login/login.js';
 
 const App = () => {
   let page
@@ -12,6 +13,9 @@ const App = () => {
       break;
     case "/create":
       page = <Create/>
+      break;
+    case "/login":
+      page = <Login/>
       break;
     default:
       if (window.location.pathname.startsWith("/")) {

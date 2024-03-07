@@ -19,7 +19,7 @@ const header = () => {
             <div className = "right">
             <ul>
                 <li><a href = "/about">About</a></li>
-                <li><a href = "#">Log In</a></li>
+                <li><a href = "/login">Log In</a></li>
                 <li><a href = "#">Sign Up</a></li>
             </ul>
             </div>
