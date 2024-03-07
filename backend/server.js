@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 app.use('/', all_routes)
 app.post('/register', (req, res) => {
     user_model.create(req.body).then(users => res.json(users)).catch(err => res.json(err))
-},
+}),
 mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         app.listen(4000, () => {

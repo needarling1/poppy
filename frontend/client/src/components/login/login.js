@@ -9,11 +9,10 @@ const Login = () => {
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
 
-    const logIn = (e) => {
+    const logIn = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:4000/login', {email, password }).then(result => console.log(result).catch(err => console.log(err)))
+        const respond = await axios.post('http://localhost:4000/api/login', {email: email, password: password }).then(result => console.log(result).catch(err => console.log(err)))
     }     
-    }
 
     return (
         <div className={'mainContainer'}>
@@ -38,11 +37,12 @@ const Login = () => {
             </div>
             <br />
             <div className={'inputContainer'}>
-                <input className={'inputButton'} type="button" onClick={logIn} value={'Log in'} />
+                <input className={'inputButton'} type="button" onClick={logIn} value={'Log in'} cursor = "pointer"/>
             </div>
             </div>
         </div>
     )
 }
+
 
 export default Login

@@ -9,7 +9,7 @@ const router = express.Router()
 router.get('/api/pins', get_pins)
 router.get('/api/pins/:id', get_one_pin)
 router.post('/api/create', create_pin)
-router.get('/api/login', get_users)
+router.post('/api/login', create_user)
 router.post('/api/create', create_user)
 
 module.exports = router
