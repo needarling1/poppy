@@ -27,6 +27,8 @@ const Login = () => {
             setPasswordError('The password must be 8 characters or longer')
             return
         }
+
+        
     }
 
     return (
